@@ -67,9 +67,6 @@ $(function() {
 	});
 });
 
-//우편번호
-
-
 //아이디 중복 체크
 $('#writeForm #id').focusout(function(){
 	$('#writeForm #idDiv').empty();
@@ -105,10 +102,26 @@ $('#writeForm #id').focusout(function(){
 	}	
 }); 
 
-
+// 우편번호 체크
 $('#zipcodeBtn').click(function(){
 	window.open("/MQBProject/member/checkPost.do", "checkPost", "width=500 height=500 top=200 left=700");
 	
+});
+
+$('#checkPostSearchBtn').click(function(){
+	$.ajax({
+		url: '/MQBProject/member/checkPostSearch.do',
+		type: 'post',
+		//data: 'sido='+$('#sido').val()+'&sigungu='+$('#sido').val()+'&roadname='+$('#roadname').val()
+		data: $('#checkPostForm').serialize(),
+		dataType: 'json', 
+		success: function(data){
+			alert(JSON.stringify(data));
+		},
+		error: function(err){
+			console.log(err);
+		}
+	});
 });
 
 $('#addressA').click(function(){

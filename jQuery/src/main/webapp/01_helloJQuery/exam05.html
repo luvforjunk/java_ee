@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div#container {
+	width: auto;
+	border: 5px solid #ff00ff;
+	padding: 10px;
+}
+
+div#container > h1#title {
+	background-color: #d5d5d5;
+	padding: 10px;
+}
+
+div#container div.box {
+	padding: 10px;
+	background-color: #ffff00;
+	font: 20px '굴림';
+}
+
+div#container > ul {
+	list-style: none;
+	padding: 10px;
+	margin: 0px;
+	width: auto;
+	border: 5px solid #00ff00;
+}
+
+div#container>ul>li:first-child, div#conatiner>ul>li:last-child {
+	border: 3px dotted red;
+	padding: 3px 10px;
+}
+
+pre {
+	font: 14px/130% 'Courier New';
+	/* 130%는 줄높이를 의미한다. 줄과 줄 사이의 간격 */
+	background: #eee;
+	padding: 10px 20px;
+	margin: 10px auto;
+	border: 1px solid #555;
+	border-radius: 20px; /* 20px씩 둥그스름하게 들어간 것 */
+}
+</style>
+</head>
+<body>
+	<div id="container">
+		<h1 id="title"></h1>
+		<div class="box"></div>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<p></p>
+	<pre></pre>
+	<pre name="source"></pre>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('#title').html('두번째 제목'); /* 직접 접근 */
+			$("div#container > h1#title").html("제목입니다"); /* 자식 */
+			$('div#container div.box').html('안녕하세요'); /* 자손 */
+
+			$('ul > li').html("목록입니다");
+
+			//ul의 자손인 두번째 li 태그에게 '~~~' 라고 넣어라
+			$('ul > li:eq(1)').html("jQuery 고유의 방식도 있다");
+
+			$('p, pre').html('다중요소 선택');
+
+			// name 속성이 source인 요소에 'CSS2의 선택자'라고 넣으시오
+			$('pre[name=source]').html('CSS2의 선택자');
+
+			//li 태그의 첫번쨰와 마지막 요소에 First-child / Last-child 넣으시오
+			$('div#container > ul > li:first-child').html("First-child");
+			$('div#container > ul > li:last-child').html("Last-child");
+
+		}); /* JQuery객체로 바꿔서 넣어주겠다~ */
+	</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function printTime() {
+		var days = ["일", "월", "화", "수", "목", "금", "토"] // 배열 생성해준 것 days[0] => "일"
+		var today = new Date(); // Date 클래스 생성... 자바가 아닌 자바 스크립트
+		
+		var yy = today.getFullYear(); // 년
+		var mm = today.getMonth() + 1; // 월, 1월은 0으로 설정되었다. 2월은 1
+		var dd = today.getDate(); // 일
+		var i = today.getDay(); // 요일(0~6)
+		var day = days[i];
+		
+		var hh = today.getHours();
+		var mi = today.getMinutes();
+		var ss = today.getSeconds();
+		
+		var result = yy+"-"+mm+"-"+dd+" "+day+"요일 "+hh+":"+mi+":"+ss;
+		document.getElementById("timer").innerHTML = result;
+	}
+
+	function startTime() {
+		setInterval(printTime, 1000); // 단위 1/1000(기본), 1초마다 printTime 호출. 함수명으로 쓰지 않는다
+	}
+</script>
+</head>
+<body onload="startTime()">
+	<h1 id="timer">현재시간을 보여줍니다</h1>
+</body>
+</html>
+
+<!-- 
+글씨가 사라지고 몇월 몇일 몇시
+
+<body onload="startTime()">
+	<h1 id="timer">현재시간을 보여줍니다</h1>
+</body>  
+=> h1를 읽고 나서 startTime()함수를 보여달라는 의미
+
+		result값을 id가 timer인 h1태그를 얻어 그 안의 값을 출력하시오
+		document.getElementById("timer").innerHTML = result;
+ -->

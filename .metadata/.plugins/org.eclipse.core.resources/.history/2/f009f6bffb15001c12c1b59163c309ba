@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet href="../css/external.css">
+<style type="text/css">
+p{
+	color: lightsalmon;
+	font-size:12pt;
+}
+</style>
+</head>
+<body>
+<h3>p 태그에 스타일 중첩</h3>
+<hr>
+<p>Hello, students!</p>
+<p style="font-size: 25pt;">안녕하세요 뷔님!!</p>
+</body>
+</html>
+
+<!-- 
+* 스타일 시트가 중첩되었을 때 순위
+- 1순위 : 태그 안의 스타일 시트
+- 2순위 : <style> 태그
+- 3순위 : 파일 스타일 시트 
+ -->

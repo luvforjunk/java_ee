@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+html, body{
+	margin: 0; /* 바깥쪽 여백*/
+	padding: 50px; /* 안쪽 여백*/
+	height: 100%;
+}
+.header {
+	width: 100%;
+    height: 15%;
+    background: yellow;
+}
+
+.nav{
+	width: 15%;
+	height: 30%;
+	float: left; 
+	background: orange;
+}
+
+.section{
+	width: 70%;
+	height: 30%;
+	float: left; 
+	background: olivedrab;
+}
+
+.aside{
+	width: 15%;
+	height: 30%;
+	float: left; 
+	background: orange;
+}
+
+.footer{
+	width: 100%;
+	height: 15%;
+	/* clear: both; */
+	display: flex;
+	background: plum;
+}
+
+</style>
+</head>
+<body>
+	<header class="header">header</header>
+	<nav class="nav">nav</nav>
+	<section class="section">aside</section>
+	<aside class="aside">aside</aside>
+	<footer class="footer">footer</footer>
+</body>
+</html>
+
+<!-- id="" / # class="" - 체크 박스 같은 여러 개의 속성을 가리킬 때는 / . --> 

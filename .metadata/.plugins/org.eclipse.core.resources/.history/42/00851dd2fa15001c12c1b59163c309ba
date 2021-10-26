@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h3>p 태그에 스타일 중첩</h3>
+<hr>
+<p>Hello, students!</p>
+<p>안녕하세요 홍길동님!!</p>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/reset.css">
+</head>
+<body>
+	<h1 class="title">$.ajax() 함수를 사용한 텍스트 읽기</h1>
+	<div class="exec">
+		<input type="button" value="txt파일 가져오기" id="mybtn" />
+	</div>
+	<div class="console" id="result"></div>
+	
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+$('#mybtn').click(function(){ 
+	$.ajax({ /* 여기서 $는 jQuery이다. 코드를 줄 부분에 {}를 넣어주면 된다 */
+		url: '../text/text0.txt',
+		type: 'get', 
+		dataType: 'text', /* 응답으로 text(문자열)이 온다 */ 
+		timeout: 30000, /* 30초 */
+		cache: false,
+		success: function(data){ /* 문자열이 data로 들어온다 */
+			//alert(data);
+			$('#result').html(data);  /* 화면 이동없이 바로 밑에 뿌려진다 */
+		},
+		error: function(xhr, textStatus, errorThrown){
+			$('div').html('<div>' + textStatus + '(HTTP-'+ xhr.status + ' / ' + errorThrown + ')<div>');
+		}
+	});
+});
+</script>	
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function sum(x, y){ // 함수 생성
+		return x+y;
+	}
+
+	function showResult() {
+		var result = sum(10, 20);
+		document.getElementById("question").innerHTML = "<font color='red'>" + result + "</font>";
+	}
+	function hideResult() {
+		document.getElementById("question").innerText = "?";
+	}
+	
+</script>
+</head>
+<body>
+	<h1 onmouseover="showResult()" onmouseout="hideResult()"> 
+	10 + 50 = <span id="question" style="border: 1px solid red;">?</span>
+	</h1>
+	<p>결과를 보시려면 수식 위에 마우스를 올리시오.</p>
+
+</body>
+</html>
+
+<!-- 
+onmouseover : 마우스를 그냥 올렸을 때
+onmouseout : 마우스를 내렸을 때
+
+exam15는 클릭이라는 이벤트를 발생시킨 것
+exam16은 마우스 오버, 아웃 이벤트를 발생시킨 것
+ -->
+
+

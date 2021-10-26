@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function insertQuestion(){
+		var input = prompt("사칙연산의 수식을 입력하세요. (예: 100+50)", "") 
+		
+		// 문자열을 수식으로 변환시킨다
+		var answer = eval(input); 
+		
+		// 식과 결과값을 
+		document.getElementById("question").innerHTML = input + "=" + answer
+	}
+</script>
+</head>
+<body onload="insertQuestion()"> 
+	<h1 id="question"></h1>
+</body>
+</html>
+
+<!-- 
+<body onload="insertQuestion()"> : 바디 영역을 읽었을 때 javascript의 "insertQuestion()"을 부르겠다
+ 
+ - 그냥 글씨만 들어갈 때는 innerText. 나머지는 innerHTML.
+ -->

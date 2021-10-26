@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/reset.css">
+</head>
+<body>
+	<h1 class="title">$.ajax() 함수를 사용한 XML데이터 읽기 (2)</h1>
+	<div class="exec">
+		<input type="button" value="xml데이터 가져오기" id="mybtn" />
+	</div>
+	<div class="console" id="result"></div>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+$('#mybtn').click(function(){
+	$.ajax({
+		url: '../xml/xml02.xml',
+		type: 'get',
+		// 넘어가는 데이터가 없으니 Data는 생략
+		dataType: 'xml', // xml로 가져올 것이다
+		success: function(data){ //xml에 있는 데이터들이 여기로 들어온다
+			$(data).find('subject').each(function(){
+				var title = $(this).find('title').text();// $(data).find('subject') 안에서 each문을 돌려 
+				var time = $(this).find('time').text();
+				var teacher = $(this).find('teacher').text();
+			
+				// 화면에 출력하기 위해서 HTML 요소를 동적으로 생성
+				var div = $('<div/>'); 
+				var p1 = $('<p/>').html(title); 
+				var p2 = $('<p/>').html(time);
+				var p3 = $('<p/>').html(teacher);
+				
+				//메서드 체인
+				div.append(p1).append(p2).append(p3);
+				
+				$('#result').append(div);
+				$('#result').append('<hr/>');
+				// <hr/>경계선을 만들어서 구분해준다
+				
+			}); //하나가 아니라 여러 개이니 subject를 기준으로 each를 이용해 for문(반복문)을 돌려준다
+		},
+		error: function(err){
+			alert(err);
+		}
+	});
+});
+</script>
+</body>
+</html>

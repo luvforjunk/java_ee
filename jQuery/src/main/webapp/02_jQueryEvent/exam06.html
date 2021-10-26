@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/event.css">
+</head>
+<body>
+<h1>Key 이벤트 확인하기</h1>
+<div id="input">
+	<input type="text">
+</div>
+<h2>결과</h2>
+<div id="result"></div>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+function getKeyName(keyCode) {
+	
+	//JSON의 형식 - {변수: 값, 변수: 값, 변수: 값, ...}형태로 css stylesheet형식이랑 같다
+	//JSON의 배열 - [{변수: 값}, {변수: 값}, {변수: 값}, ....]
+	
+	var keyMap = [
+		{code: 8, name: "backspace"}, 
+		{code: 9, name: "tab"}, 
+		{code: 13, name: "enter"}, 
+		{code: 16, name: "shift"},
+		{code: 17, name: "ctrl"},
+		{code: 18, name: "alt"},
+		{code: 19, name: "pausebreak"},
+		{code: 20, name: "capslock"},
+		{code: 21, name: "han/eng"},
+		{code: 25, name: "hanja"},
+		{code: 27, name: "esc"},
+		{code: 65, name: "A"},
+		{code: 97, name: "a"},
+		];
+	
+	for(var i=0; i<keyMap.length; i++){
+		if(keyMap[i].code == keyCode){
+			return keyMap[i].name;
+		}
+	}
+}
+
+$(function(){
+	// Javascript에서 event.keyCode 를 하면 각 키보드에 해당하는 고유번호를 알 수 있다.
+	// 이 메소드가 jQuery에서는 event.which 으로 사용하게 된다.
+	// .keydown - 대소문자 구별X (A도 a도 65라고 나온다)
+	
+	// $('#input > input[type=text]').keypress(function(e){ - 대소문자 구별함, 특수키는 구별 못함
+		$('#input > input[type=text]').keydown(function(e) {
+		$('#result').html(e.which + '번 키 눌러짐 &gt;&gt; ' + getKeyName(e.which));// &gt; : >
+		// event.which는 keyCode값을 불러오라는 뜻이다
+	});
+});
+</script>
+</body>
+</html>

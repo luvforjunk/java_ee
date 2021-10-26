@@ -1,0 +1,6 @@
+0:0:0:0:0:0:0:1 - - [21/Oct/2021:00:32:52 +0900] "GET /AJaxJQuery/01_helloAjax/exam04.html HTTP/1.1" 200 1222
+0:0:0:0:0:0:0:1 - - [21/Oct/2021:00:32:52 +0900] "GET /AJaxJQuery/css/common.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [21/Oct/2021:00:32:52 +0900] "GET /AJaxJQuery/css/reset.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [21/Oct/2021:00:32:52 +0900] "GET /favicon.ico HTTP/1.1" 404 818
+0:0:0:0:0:0:0:1 - - [21/Oct/2021:00:32:55 +0900] "GET /AJaxJQuery/text/textdata.jsp?keyword=Hello%20AJax!! HTTP/1.1" 200 152
+0:0:0:0:0:0:0:1 - - [21/Oct/2021:00:32:58 +0900] "GET /AJaxJQuery/text/textdata.jsp?keyword=Hello%20AJax!! HTTP/1.1" 200 152

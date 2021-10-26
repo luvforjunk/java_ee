@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	window.onload = function() {// 처음 실행하자마자 뜰 수 있도록 window.onload를 써준다
+		var kakao = document.getElementsByName("kakao") // 카카오라는 Name속성을 가진 요소'들'
+		alert(kakao.length[0]);
+		for(var i=0; i<kakao.length; i++){
+			// 체크된 것을 찾는다
+			if(kakao[i].checked){// 체크 되어 있으면 true 아니면 false
+				printImage(kakao[i].value);
+				break;
+			}
+		}//for
+		
+		if(i==kakao.length) // 선택된 값이 하나도 없을 때
+			printImage("image/2.PNG"); // 기본적으로 2.PNG가 나타남
+	}
+	
+	function printImage(imgFile){
+		// alert(imgFile);
+		
+		document.getElementById("show").src = imgFile;
+	}
+</script>
+</head>
+<body>
+	<h3>라디오 버튼을 클릭하면 이미지를 출력합니다.</h3>
+	<hr>
+	<form>
+		<input type="radio" name="kakao" value="image/1.PNG" onclick="printImage(this.value)">달려라프렌즈
+		<input type="radio" name="kakao" value="image/2.PNG" onclick="printImage(this.value)">요정
+		<input type="radio" name="kakao" value="image/3.PNG" onclick="printImage(this.value)">바다
+	</form>
+	<br>
+	<img id="show" src="" width="450" height="150" alt="선택한 이미지">
+</body>
+</html>

@@ -1,0 +1,218 @@
+@charset "UTF-8";
+
+/*reset*/
+* {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+/*common */
+body {
+	padding: 0;
+	margin: 0;
+}
+
+.clearfix {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+/* hidden css */
+.blind {
+	display: block;
+	overflow: hidden;
+	position: absolute;
+	left: 0;
+	top: -1000em;
+}
+/* skip */
+.a-paragraph {
+	text-align: center;
+	font-size: 10px;
+}
+/* skip */
+
+/* header */
+#header {
+	height: 75px;
+	background-color: white;
+	border: 1px solid white;
+	position: absolute;
+	width: 100%;
+	float: left;
+	z-index: 9999;
+	left: 0;
+}
+
+.logo {
+	padding: 12px 0 12px 26px;
+	display: inline-block;
+}
+
+.logo #cos {
+	width: 150px;
+	height: 55px;
+	background: url(img/logo.PNG) no-repeat ;
+	background-size: 150px 55px;
+	display: inline-block; /* block단위로 잡아놓으면 한 줄을 다먹음 */
+	overflow: hidden;
+	text-indent: -9999em;
+}
+
+.topnav {
+	position : absolute;
+	right: 35px;
+	top: 18px;
+	position: absolute;
+}
+
+.topnav dd {
+	float: left;
+	padding-right: 11px;
+	margin-right: 10px;
+	background: url(../img/bg_topnav.png) no-repeat 100% 50%;
+}
+
+.topnav dd:last-child {
+	padding-right: 0;
+	margin-right: 0;
+	background: none;
+}
+
+.topnav dd a {
+	color: black;
+	font-size: 0.9em;
+}
+
+.mainnav {
+	float: right;
+}
+
+.mainnav:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.mainnav li {
+	float: left;
+}
+
+.mainnav li a {
+	display: block;
+	padding: 0 15px;
+	color: black;
+	line-height: 75px;
+	text-transform: uppercase;
+	text-decoration: none;
+	font: bold 16px/40px 'Nanum Gothic', sans-serif;
+}
+/* header */
+
+/* container */
+#container {
+	padding-bottom: 121px;
+}
+
+#container:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.jb-box {
+	width: 100%;
+	height: 1500px;
+	overflow: hidden;
+	margin: 0px auto;
+	position: relative;
+}
+
+video {
+	width: 100%;
+}
+
+.jb-text {
+	position: absolute;
+	top: 50%;
+	width: 100%;
+}
+
+.jb-text h2 {
+	margin-top: -150px;
+	text-align: center;
+	font-size: 40px;
+	color: red;
+}
+
+.jb-text p {
+	margin-top: -1px;
+	text-align: center;
+	font-size: 10px;
+	color: red;
+}
+/* container */
+
+/* footer */
+#footer {
+	position: relative;
+	background-color: #fff;
+}
+
+#footer .footerArea {
+	border-top: 1px solid #cccccc;
+	padding: 0;
+	height: 300px;
+	color: #666;
+	font-size: 0.9em;
+	width: 760px;
+	margin: 0 auto;
+}
+
+#footer .footerArea:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.single-footer {
+	width: 20%;
+	float: left;
+	text-align: left;
+	color: black;
+}
+
+.single-footer {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.single-footer ul, li, a {
+	text-decoration: none;
+	font-size: 12px;
+	margin: 0 0 15px;
+	font-weight: 500;
+	list-style: none;
+}
+
+.copy { /*copy 클래스의 줄 간격 */
+	float: left;
+	line-height: 1.8;
+	margin-left: 20px;
+	margin-top: 18px;
+}
+
+.txt {
+	font-size: 9px;
+}
+/* footer */

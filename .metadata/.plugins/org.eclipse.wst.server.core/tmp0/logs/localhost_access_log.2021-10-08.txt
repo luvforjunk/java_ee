@@ -1,0 +1,7 @@
+127.0.0.1 - - [08/Oct/2021:21:36:38 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [08/Oct/2021:21:36:40 +0900] "GET /mvcmember/member/loginForm.jsp HTTP/1.1" 200 1204
+0:0:0:0:0:0:0:1 - - [08/Oct/2021:21:36:40 +0900] "GET /mvcmember/js/member.js HTTP/1.1" 200 1465
+0:0:0:0:0:0:0:1 - - [08/Oct/2021:21:36:40 +0900] "GET /favicon.ico HTTP/1.1" 404 818
+0:0:0:0:0:0:0:1 - - [08/Oct/2021:21:36:50 +0900] "POST /mvcmember/member/login.do HTTP/1.1" 200 529
+0:0:0:0:0:0:0:1 - - [08/Oct/2021:21:36:50 +0900] "GET /mvcmember/img/img5.PNG HTTP/1.1" 200 312862
+0:0:0:0:0:0:0:1 - - [08/Oct/2021:21:37:09 +0900] "GET /mvcmember/member/logout.do HTTP/1.1" 500 1552

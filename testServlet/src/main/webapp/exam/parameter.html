@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div {
+	font-size: 8pt;
+	color: red;
+	font-weight: bold;
+}
+</style>
+<script type="text/javascript">
+function goParam(){
+	
+	/* Id속성 이용 - alert창 띄우기
+	if(document.getElementById("name").value == "")
+		alert("이름을 입력하세요");
+	else if(document.getElementById("age").value == "")
+		alert("나이를 입력하세요");
+	else 
+		document.paramForm.submit(); */
+		
+	/* Name속성 이용 - if(현재문서.폼이름.name속성) */
+	document.getElementById("nameDiv").innerText="";
+	document.getElementById("ageDiv").innerText="";
+	if(document.paramForm.name.value == "")
+		// alert("이름을 입력하세요");
+		document.getElementById("nameDiv").innerText="이름을 입력하세요"; 
+	else if(document.paramForm.age.value == "")
+		// alert("나이를 입력하세요");
+		document.getElementById("ageDiv").innerText="나이를 입력하세요"; 
+	else
+		document.paramForm.submit();
+}
+</script>
+</head>
+<body>
+	<form name="paramForm" method="get or post"
+		action="http://localhost:8080/testServlet/ParamServlet">
+<!-- 
+form이 하나뿐이므로 이름은 굳이 안써줘도 상관없다.
+submit이 액션을 찾아 들어갈건데 이 액션은 form안에 써줘야 한다
+액션과 폼은 한세트로 움직인다
+ -->
+		<table border="1" cellspacing="0" cellpadding="5">
+<!-- 
+cellspacing="0" : 두 줄을 한줄인 것 처럼 보여준다
+cellpadding="5" : 셀 안쪽 여백을 5만큼
+-->
+			<tr><!-- 행 -->
+				<td width="100" align="center">이름</td>
+				<td>
+					<input type="text" name="name" id="name" placeholder="이름 입력">
+					<div id="nameDiv"></div>
+				</td>
+			</tr>
+<!-- 
+td는 width를 쓰지만 input에서는 size를 쓴다 
+-->
+			<tr>
+				<td width="100" align="center">나이</td>
+				<td>
+					<input type="text" name="age" size="7" maxlength="3">
+					<div id="ageDiv"></div>
+				</td>
+			</tr>
+<!--
+name="age"에서 name은 속성명 age는 변수명이다.
+maxlength="3"에서 최대 글자 값을 3으로 설정해둔다.
+-->
+			<tr>
+				<td colspan="2" align="center"><!-- 셀 병합 --> 
+				<input type="button" value="보내기" onclick="goParam()">
+				<input type="reset" value="취소">
+				</td>
+			</tr>
+<!-- 
+input type="button"은 onclick과 세트
+onclick="자바스크립트 함수 호출" 
+--> 
+		</table>
+	</form>
+</body>
+</html>

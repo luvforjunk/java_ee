@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="calc.js"></script>
+<!-- src를 쓸 때는 /> 막으면 안된다.  -->
+<script type="text/javascript">
+	document.write("<h3>calc</h3>");
+	calc.setValue(25, 36);
+	calc.result();
+	
+	calc.setValue(10, 30);
+	document.write("덧셈 = " + calc.plus() + "<br>");
+	document.write("뺄셈 = " + calc.minus() + "<br>");
+	// 객체 안에 있는 것이 아니기 때문에 calc.plus 이런식으로 써준다
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+<!-- 
+객체(Class)
+- 변수와 함수의 집합
+- Javascript는 Prototype 기반의 객체지향언어이다.
+ => 객체를 원형(prototype) 형태로 생성하고, 그 안에 기능을 위한 함수나 변수를 추가하는 방법으로 그룹화 하는 개념
+ => 객체는 자주 사용하게 될 기능들을 묶어서 외부의 스크립트 파일로 분리해내는 용도로 주로 사용한다.
+ 	이렇게 만든 스크립트 파일은 여러 개의 HTML파일에 의해서 참조하여 재사용할 수 있다.
+ 
+ <자바> Test.java
+ class Test {
+ 	private int a; - 필드.....oracle에서는 변수
+ 	
+ 	public void sub()P{} - 메소드
+}
+
+TextMain.java
+public class TestMain {
+	public static void main(~~~) {
+		Test t = new Test();
+	}
+}
+
+SampleMain.java
+public class SampleMain {
+	public static void main(~~~) {
+		Test t = new Test();
+	}
+}
+ -->

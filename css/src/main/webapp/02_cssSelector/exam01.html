@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+h3, li {
+	color: FFC8C8;
+}
+div > div > strong { /* 자식 셀렉터 */
+	background: #F0B6B6;
+}
+ul strong { /* 후손 셀렉터 */
+	color: #FFC8C8;
+}
+.warning {
+	color: brown;
+}
+body.main {
+	background: #DCAD67;
+}
+#list {
+	background: #B90000;
+}
+#list span {
+	color: #FFC8C8;
+}
+h3:first-letter { /* 가상 클래스 - 첫 번째 문자를 선택 */
+	color: red;
+	font-size: 25px;
+}
+li:hover { /* 가상 클래스 */
+	background: #FFE4E1;
+}
+::selection { /* 마우스를 드래그하면 글자색은 빨강, 바탕색은 노랑으로 변한다 */
+	color: red;
+	background: yellow;
+}
+</style>
+</head>
+<body>
+	<h3>Web Programming</h3>
+	<hr>
+	<div>
+		<div>2학기 <strong>학습 내용</strong>입니다.</div>
+		<ul id="list">
+			<li><span>HTML5</span></li>
+			<li><strong>CSS</strong></li>
+			<li>JAVASCRIPT</li>
+		</ul>
+		<div class="warning">60점 이하는 F</div>
+	</div>
+</body>
+</html>

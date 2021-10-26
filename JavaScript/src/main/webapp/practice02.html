@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function goSite(select){//내가 선택한 옵션의 객체값이 넘어온다
+		var index = select.selectedIndex;
+		var site = select.options[index].value
+		alert(index + ", " + site); 
+		console.log(index + ", " + site); // console.log 쓸 경우 f12로 확인해야 한다
+	
+		window.open(site, "", "left=800, top=200, width=500, height=500");
+	}
+</script>
+</head>
+<body>
+	<h3>옵션 선택으로 사이트 접속</h3>
+	옵션 선택마다 새 윈도우에 접속합니다.
+	<hr>
+	<select onchange="goSite(this)">
+		<option value = "">선택하세요</option> 
+		<option value = "http://www.google.com">구글</option>
+		<option value = "http://www.naver.com">네이버</option>
+		<option value = "http://www.daum.net">다음</option>
+	</select>
+</body>
+</html>

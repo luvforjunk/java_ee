@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function open1(){
+		// 새로운 창이 열린다.
+		window.open("open.html"); // window 객체를 통해 열어준다
+	}
+	
+	function open2() {
+		window.open("open.html", "", "width=300, height=500, scrollbars=no, toolbar=no, menubar=no, status=no, laction=no");
+	}
+	
+	function open3(url) {
+		window.open(url, "monster", "width=300, height=500, scrollbars=no, toolbar=no, menubar=no, status=no, laction=no");
+
+	}
+</script>
+</head>
+<body>
+	<h1>window 객체</h1>
+	<h3>open 메소드 확인</h3>
+	<div>
+		<a href="#" onclick="open1(); return false;">새 창 열기</a> 
+		<br>
+		<a href="#" onclick="open2(); return false;">팝업 창 열기(1)</a>
+		<br>
+		<a href="#" onclick="open3('http://www.naver.com'); return false;">팝업 창 열기(2-1)</a>
+		<br>
+		<a href="#" onclick="open3('http://www.naver.com'); return false;">팝업 창 열기(2-2)</a>
+		<br>
+	</div>
+</body>
+</html>
+
+
+<!-- "" 안에 따옴표는 반드시 ''싱글. 안그러면 문자의 분리가 일어난다 
+href => 해당 주소로 이동해라 라는 의미
+
+a태그에서 onclick이 있을 경우 onclick을 먼저 수행하고 href로 이동한다
+=> <a href="http://www.naver.com" onclick="alert('hi');">TEST1</a>
+
+ onclick에서 return false;가 있을 경우 href로 이동하지 않는다 
+=> <a href="http://www.naver.com" onclick="alert('hi'); return false;">TEST2</a>
+
+<a href="#" onclick="alert('hi');">TEST1</a>
+
+
+cookie
+=> 타겟을 설정하면 팝업창이 안열린다
+
+-->

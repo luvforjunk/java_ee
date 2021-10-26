@@ -14,7 +14,7 @@ td {
 </style>
 </head>
 <body>
-	<form action="/mvcmember/member/checkPost.do">
+	<form action="/MQBProject/member/checkPost.do">
 		<table border="1" cellspacing="0" cellpadding="5">
 			<tr>
 				<td align="center" width="100">시도</td>
@@ -68,11 +68,6 @@ td {
 					</tr>
 				</c:forEach>
 			</c:if>
-
-			<%-- <%if(list != null){ %>
-				<% for(ZipcodeDTO zipcodeDTO : list){ %>
-				<%} %>
-			<%} %> --%>
 		</table>
 	</form>
 	

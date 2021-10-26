@@ -8709,3 +8709,22 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.lsp4e 1 0 2021-10-26 10:46:18.765
 !MESSAGE [Info]	ESLint server running in node v14.15.4
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2021-10-26 12:34:37.608
+!MESSAGE Could not publish server configuration: FWK005 parse may not be called while parsing..
+!STACK 0
+org.xml.sax.SAXException: FWK005 parse may not be called while parsing.
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:276)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:339)
+	at org.eclipse.jst.server.tomcat.core.internal.xml.Factory.loadDocument(Factory.java:90)
+	at org.eclipse.jst.server.tomcat.core.internal.TomcatVersionHelper.publishCatalinaContextConfig(TomcatVersionHelper.java:510)
+	at org.eclipse.jst.server.tomcat.core.internal.Tomcat90Configuration.publishContextConfig(Tomcat90Configuration.java:676)
+	at org.eclipse.jst.server.tomcat.core.internal.TomcatServerBehaviour.publishFinish(TomcatServerBehaviour.java:471)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publish(ServerBehaviourDelegate.java:1013)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publish(ServerBehaviourDelegate.java:776)
+	at org.eclipse.wst.server.core.internal.Server.publishImpl(Server.java:3184)
+	at org.eclipse.wst.server.core.internal.Server$PublishJob.run(Server.java:357)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.equinox.security 1 0 2021-10-26 15:11:56.385
+!MESSAGE New keyring password generated. 

@@ -14,8 +14,9 @@ public class LogoutService implements CommandProcess{
 		HttpSession session = request.getSession();
 		
 		// 세션 - 특정 세션 제거
-		session.removeAttribute("memName");
-		session.removeAttribute("memId");
+		//session.removeAttribute("memName");
+		//session.removeAttribute("memId");
+		//session.removeAttribute("memEmail");
 		
 		//모든 세션 제거
 		session.invalidate(); // 무효화

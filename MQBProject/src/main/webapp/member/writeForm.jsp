@@ -10,7 +10,7 @@
 </style>
 
 
-<form name="writeForm" id="writeForm" method="post" action="">
+<form name="writeForm" id="writeForm">
 								<!-- action에서 member는 namespace로 구분자이다 -->
 	<table border="1" cellspacing="0" cellpadding="5">
 		<tr>
@@ -49,8 +49,8 @@
 		<tr>
 			<td width="100" align="center">성별</td>
 			<td>
-				<input type="radio" name="gender" value="0" checked>남
-				<input type="radio" name="gender" value="1">여
+				<input type="radio" name="gender" value=0 checked>남
+				<input type="radio" name="gender" value=1>여
 			</td>
 		</tr>
 		
@@ -61,9 +61,9 @@
 				@
 				<input type="text" name="email2" list="email2" placeholder="직접입력">
 				<datalist id="email2">
-					<option value="naver.com">naver.com
-					<option value="daum.net">daum.net
-					<option value="gmail.com">gmail.com
+					<option value="naver.com">naver.com</option>
+					<option value="daum.net">daum.net</option>
+					<option value="gmail.com">gmail.com</option>
 				</datalist>
 			</td>
 		</tr>

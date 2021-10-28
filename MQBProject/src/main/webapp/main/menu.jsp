@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <style>
 .mainnav {
@@ -21,13 +22,16 @@
 	text-decoration: none;
 }
 
-.mainnav li a:hover{
+.mainnav li a:hover {
 	color: #660000;
 	background-color: #ffcc00;
 }
 </style>
 
 <ul class="mainnav">
-	<li><a href="">글쓰기</a>
-	<li><a href="">목록</a>
+	<c:if test="${memId != null }">
+		<li><a href="/MQBProject/board/boardWriteForm.do">글쓰기</a></li>
+	</c:if>
+	
+	<li><a href="">목록</a></li>
 </ul>

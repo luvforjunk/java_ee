@@ -11,14 +11,34 @@
 td {
 	font-size: 8pt;
 }
+
+.addressA: link {
+	color: black;
+	text-decoration: none;
+}
+
+.addressA: visited {
+	color: black;
+	text-decoration: none;
+}
+
+.addressA: hover {
+	color: green;
+	text-decoration: underline;
+}
+
+.addressA: active {
+	color: black;
+	text-decoration: none;
+}
 </style>
 </head>
 <body>
-	<form action="/MQBProject/member/checkPost.do">
-		<table border="1" cellspacing="0" cellpadding="5">
+	<form id="checkPostForm">
+		<table id="zipcodeTable" border="1" cellspacing="0" cellpadding="5">
 			<tr>
 				<td align="center" width="100">시도</td>
-				<td><select name="sido">
+				<td><select name="sido" id="sido">
 						<option>시도선택</option>
 						<option value="서울">서울</option>
 						<option value="인천">인천</option>
@@ -44,41 +64,22 @@ td {
 
 			<tr>
 				<td align="center">도로명</td>
-				<td colspan="3">
-					<input type="text" name="roadname" size="40">
-					<input type="submit" value="검색"></td>
+				<td colspan="3"><input type="text" name="roadname"
+					id="roadname" size="40"> <input type="button"
+					id="checkPostSearchBtn" value="검색"></td>
 			</tr>
 
 			<tr>
 				<td align="center">우편번호</td>
 				<td align="center" colspan="3">주소</td>
 			</tr>
-
-			<c:if test="${list != null }">
-				<c:forEach var="zipcodeDTO" items="${requestScope.list }">
-					<c:set var="address">
-					${zipcodeDTO.sido } ${zipcodeDTO.sigungu } ${zipcodeDTO.yubmyundong } ${zipcodeDTO.ri } ${zipcodeDTO.roadname } ${zipcodeDTO.buildingname }
-					</c:set>
-					
-					<tr>
-						<td align="center">${zipcodeDTO.zipcode }</td>
-						<td colspan="3">
-							<a href="#" id="addressA" onclick="checkPostClose('${zipcodeDTO.zipcode }', '${address }')">${address }</a>
-						</td>
-					</tr>
-				</c:forEach>
-			</c:if>
 		</table>
 	</form>
-	
-<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript">
-function checkPostClose(zipcode, address) {
-	opener.writeForm.zipcode.value = zipcode;
-	opener.writeForm.addr1.value = address;
-	window.close();
-	opener.writeForm.addr2.focus();
-}
-</script>
+
+	<script type="text/javascript"
+		src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="../js/member.js">
+		
+	</script>
 </body>
 </html>

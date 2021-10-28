@@ -76,4 +76,12 @@ public class MemberDAO {
 		sqlSession.close();
 		return list;
 	}
+
+	public void write(MemberDTO memberDTO) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		sqlSession.insert("memberSQL.write", memberDTO);
+		sqlSession.commit();
+		sqlSession.close();
+		
+	}
 }

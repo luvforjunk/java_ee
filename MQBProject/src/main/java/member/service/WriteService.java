@@ -19,7 +19,7 @@ public class WriteService implements CommandProcess {
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
 		String gender = request.getParameter("gender");
-		String email1 = request.getParameter("email");
+		String email1 = request.getParameter("email1"); 
 		String email2 = request.getParameter("email2");
 		String tel1 = request.getParameter("tel1");
 		String tel2 = request.getParameter("tel2");

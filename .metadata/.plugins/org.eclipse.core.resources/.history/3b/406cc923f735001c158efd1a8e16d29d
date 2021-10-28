@@ -1,2 +1,0 @@
-/member/login.do=member.service.LoginService
-/member/logout.do=member.service.LogoutService

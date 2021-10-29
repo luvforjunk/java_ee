@@ -1,10 +1,10 @@
 package board.bean;
 
-import lombok.Getter;
-import lombok.Setter;
+import java.util.Date;
 
-@Getter
-@Setter
+import lombok.Data;
+
+@Data
 public class BoardDTO {
 	private int seq;
 	private String id;
@@ -20,5 +20,5 @@ public class BoardDTO {
 	private int reply;
 	
 	private int hit;
-	private String logtime;
+	private Date logtime;
 }

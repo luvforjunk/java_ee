@@ -56,7 +56,8 @@ footer {
 	<header>
 		<h1>
 			<img alt="까마귀" src="/MQBProject/img/img2.gif" width="70" height="70"
-			onclick="location.href='/MQBProject/index.jsp'" style="cursor: pointer;">MVC 기반의 미니 프로젝트
+			onclick="location.href='/MQBProject/index.jsp'" style="cursor: pointer;">
+			MVC 기반의 미니 프로젝트
 		</h1>
 
 		<jsp:include page="main/menu.jsp" />

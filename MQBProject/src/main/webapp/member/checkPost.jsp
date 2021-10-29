@@ -64,9 +64,10 @@ td {
 
 			<tr>
 				<td align="center">도로명</td>
-				<td colspan="3"><input type="text" name="roadname"
-					id="roadname" size="40"> <input type="button"
-					id="checkPostSearchBtn" value="검색"></td>
+				<td colspan="3">
+					<input type="text" name="roadname" id="roadname" size="40"> 
+					<input type="button" id="checkPostSearchBtn" value="검색">
+				</td>
 			</tr>
 
 			<tr>
@@ -76,8 +77,7 @@ td {
 		</table>
 	</form>
 
-	<script type="text/javascript"
-		src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="../js/member.js">
 		
 	</script>

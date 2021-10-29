@@ -63,6 +63,7 @@ $(function(){
 				data: $('#boardWriteForm').serialize(),
 				// serialize을 쓸 때는 반드시 name속성으로 값을 넣어줘야 한다
 				success: function(){
+					alert("글쓰기 성공");
 					location.href="/MQBProject/board/boardList.do?pg=1";
 				},
 				error: function(err){

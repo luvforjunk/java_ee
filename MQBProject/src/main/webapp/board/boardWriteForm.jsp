@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+
 <style type="text/css">
 #boardWriteForm div {
 	color: red;
@@ -12,8 +8,7 @@
 	font-weight: bold;
 }
 </style>
-</head>
-<body>
+
 <h3> 글쓰기 </h3> 
 <form id="boardWriteForm"> 
 	<table cellspacing="0" border="1" cellpadding="5">
@@ -75,5 +70,3 @@ $(function(){
 	});
 });
 </script>
-</body>
-</html>

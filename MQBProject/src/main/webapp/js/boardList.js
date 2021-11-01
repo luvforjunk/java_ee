@@ -37,7 +37,7 @@ $(function() {
 
 				})).appendTo($('#boardListTable'));
 
-				//로그인 여부
+				//로그인 여부 - session
 				$('#subject_' + items.seq).click(function() { 
 					if(data.memId==null){
 					alert('먼저 로그인 하세요.');
@@ -46,6 +46,9 @@ $(function() {
 					}
 				});
 			}); //each
+			
+			// 페이징 처리
+			$('#boardPagingDiv').html(data.boardPaging);
 		},
 		error: function(err) {
 			console.log(err);

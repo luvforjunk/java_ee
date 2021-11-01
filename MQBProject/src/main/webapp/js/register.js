@@ -28,7 +28,6 @@ $(function() {
 					align: 'center',
 					text: items.email2
 
-
 				})).append($('<td/>', {
 					align: 'center',
 					text: items.id

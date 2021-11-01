@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.control.CommandProcess;
 
-public class BoardViewService implements CommandProcess {
+public class BoardModifyFormService implements CommandProcess {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
@@ -14,10 +14,11 @@ public class BoardViewService implements CommandProcess {
 		int seq = Integer.parseInt(request.getParameter("seq"));
 		int pg = Integer.parseInt(request.getParameter("pg"));
 		
-		//응답
 		request.setAttribute("seq", seq);
 		request.setAttribute("pg", pg);
-		request.setAttribute("display", "/board/boardView.jsp");
+		request.setAttribute("display", "/board/boardModifyForm.jsp");
+		// display를 써주지 않으면 창이 이동한다. 반드시 써주자
 		return "/index.jsp";
 	}
+
 }

@@ -29,7 +29,6 @@ public class GetBoardViewService implements CommandProcess {
 		HttpSession session = request.getSession();
 		String memId = (String)session.getAttribute("memId");
 		
-		
 		// BoardDTO -> JSON 변환
 		JSONObject json = new JSONObject();
 		json.put("seq", boardDTO.getSeq());

@@ -54,4 +54,21 @@ public class BoardDAO {
 		sqlSession.close();
 		return boardDTO;
 	}
+
+	public void boardModify(Map<String, String> map) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		sqlSession.update("boardSQL.boardModify", map);
+		sqlSession.commit();
+		sqlSession.close();
+		
+	}
+
+	public int getTotalA() {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		int totalA = sqlSession.selectOne("boardSQL.getTotalA");
+		// selectOne이다 해서 무조건 dto를 불러오는 게 아니다.
+		// 정수형 값으로 받는다.
+		sqlSession.close();
+		return totalA;
+	}
 }

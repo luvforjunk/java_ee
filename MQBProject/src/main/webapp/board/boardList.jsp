@@ -11,16 +11,6 @@ td {
 	font-size: 13px;
 }
 
-#currentPaging {
-	color: red;
-	text-decoration: underline;
-}
-
-#paging {
-	color: black;
-	text-decoration: none;
-}
-
 .subjectA:link {
 	color: black;
 	text-decoration: none;
@@ -40,6 +30,18 @@ td {
 	color: green;
 	text-decoration: underline;
 }
+
+#currentPaging {
+	color: red;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#paging {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
 </style>
 
 <body>
@@ -55,20 +57,13 @@ td {
 		</tr>
 
 	</table>
-	<div style="width: 750px; text-align: center;">
-		<c:forEach var="i" begin="1" end="${totalP }">
-			<c:if test="${i == pg }">
-			[<a id="currentPaging" href="/MQBProject/board/boardList.do?pg=${i }">${i }</a>]
-		</c:if>
-			<c:if test="${i != pg }">
-			[<a id="paging" href="/MQBProject/board/boardList.do?pg=${i }">${i }</a>]
-		</c:if>
-		</c:forEach>
+	<div style="width: 750px; text-align: center;" id="boardPagingDiv">
 	</div>
 
-
-	<script type="text/javascript"
-		src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script type="text/javascript" src="/MQBProject/js/boardList.js">
-		
-	</script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/MQBProject/js/boardList.js"></script>
+<script type="text/javascript">
+function boardPaging(param_pg) {
+	location.href = '/MQBProject/board/boardList.do?pg='+param_pg;
+}	
+</script>

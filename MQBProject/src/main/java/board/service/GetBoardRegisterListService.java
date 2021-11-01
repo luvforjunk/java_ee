@@ -16,7 +16,7 @@ import guestbook.dao.GuestbookDAO;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-public class GetBoardRegisterListSerivce implements CommandProcess {
+public class GetBoardRegisterListService implements CommandProcess {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
@@ -24,7 +24,7 @@ public class GetBoardRegisterListSerivce implements CommandProcess {
 
 		// 데이터
 		int pg = Integer.parseInt(request.getParameter("pg"));
-
+		
 		// DB
 		// 1페이지당 5개씩
 		int endNum = pg * 3;
@@ -56,9 +56,10 @@ public class GetBoardRegisterListSerivce implements CommandProcess {
 			} // for
 
 			json.put("list", array);
-
+			
 		} // if
-
+		System.out.println(pg);
+		System.out.println(json);
 		request.setAttribute("list", json);
 		return "/board/getBoardRegisterList.jsp";
 	}

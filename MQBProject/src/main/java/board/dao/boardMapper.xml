@@ -15,11 +15,6 @@
 		, seq_board.nextval)
 
 	</insert>
-	
-	<!-- 총글수 -->
-   	<select id="getTotalA" resultType="Integer">   
-      select count(*) from board
-  	</select>
 
 	<!-- 목록 -->
 	<select id="getBoardList" parameterType="java.util.Map"
@@ -43,5 +38,17 @@
 	<!-- 글보기 -->
 	<select id="getBoardView" parameterType="int" resultType="board">
 		select * from board where seq=#{seq}
+	</select>
+	
+	<!-- 글수정 -->
+	<update id="boardModify" parameterType="java.util.Map">
+		update board set subject=#{subject}
+					   , content=#{content}
+					   , logtime=sysdate where seq=#{seq}
+	</update>
+	
+	<!-- *****총글수***** -->
+	<select id="getTotalA" resultType="int">
+		select count(*) from board
 	</select>
 </mapper>

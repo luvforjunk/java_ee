@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.control.CommandProcess;
 
 import board.bean.BoardDTO;
+import board.bean.BoardPaging;
 import board.dao.BoardDAO;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -40,6 +41,17 @@ public class GetBoardListService implements CommandProcess {
 		//세션
 		HttpSession session = request.getSession();
 		String memId = (String)session.getAttribute("memId");
+		
+		//페이징 처리
+		int totalA = boardDAO.getTotalA(); // 총글수 구하기
+		
+		BoardPaging boardPaging = new BoardPaging();
+		boardPaging.setCurrentPage(pg);
+		boardPaging.setPageBlock(3); //3페이지당
+		boardPaging.setPageSize(5); // 5개씩
+		boardPaging.setTotalA(totalA);
+		
+		boardPaging.makePagingHTML();
 		
 		// List -> JSON 변환
 		JSONObject json = new JSONObject();
@@ -72,6 +84,12 @@ public class GetBoardListService implements CommandProcess {
 			json.put("memId", memId);
 			
 		} // if
+		
+		//BoardPaging -> JSON 변환
+		json.put("boardPaging", boardPaging.getPagingHTML().toString());
+		
+		System.out.println(json);
+		//System.out.println(paging);
 
 		request.setAttribute("list", json);
 		return "/board/getBoardList.jsp";

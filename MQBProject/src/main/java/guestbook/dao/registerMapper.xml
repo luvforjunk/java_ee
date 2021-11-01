@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="registerSQL">
+	<!-- 방명록 작성 -->
+	<insert id="boardRegister" parameterType="java.util.Map">
+		insert into guestbook(seq, id, email1, email2, subject, content)
+		values(seq_board.nextval
+		, #{id}
+		, #{email1}
+		, #{email2}
+		, #{subject}
+		, #{content})
+	</insert>
+
+	<!-- 총글수 -->
+	<select id="getTotalA" resultType="Integer">
+		select count(*) from guestbook
+	</select>
+
+	<!-- 방명록 목록 -->
+	<select id="getBoardRegisterList" parameterType="java.util.Map"
+		resultType="register">
+		select * from
+		(select rownum rn, tt.* from
+		(select * from guestbook order by seq desc) tt
+		)where rn between #{startNum} and #{endNum}
+	</select>
+
+</mapper>

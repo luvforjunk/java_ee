@@ -1,6 +1,8 @@
 $(function() {
 	//회원가입
 	$('#writeBtn').click(function() {
+		//alert('버튼');
+		
 		$('#nameDiv').empty();
 		$('#writeForm #idDiv').empty();
 		$('#writeForm #pwdDiv').empty();
@@ -44,6 +46,8 @@ $(function() {
 
 	//로그인
 	$('#loginBtn').click(function() {
+		//alert('버튼~');
+		
 		$('#idDiv').empty();
 		$('#pwdDiv').empty();
 

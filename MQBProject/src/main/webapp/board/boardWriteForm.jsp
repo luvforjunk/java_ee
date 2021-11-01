@@ -44,6 +44,8 @@
 <script type="text/javascript">
 $(function(){
 	$('#boardWriteBtn').click(function(){
+		//alert('버튼~~~');
+		
 		//초기화 과정
 		$('#subjectDiv').empty();
 		$('#contentDiv').empty();

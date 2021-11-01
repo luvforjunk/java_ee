@@ -1,2 +1,6 @@
 /board/
+/com/
+/db.properties
+/guestbook/
 /member/
+/mybatis-config.xml

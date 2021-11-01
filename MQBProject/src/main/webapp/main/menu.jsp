@@ -34,4 +34,11 @@
 	</c:if>
 	
 	<li><a href="/MQBProject/board/boardList.do?pg=1">목록</a></li>
+	
+	<c:if test="${memId != null }">
+	<li><a href="/MQBProject/board/boardRegisterForm.do?pg=1">방명록 작성</a></li>
+	</c:if>
+	
+	<li><a href="/MQBProject/board/boardRegisterList.do?pg=1">방명록 보기</a></li>
+	
 </ul>

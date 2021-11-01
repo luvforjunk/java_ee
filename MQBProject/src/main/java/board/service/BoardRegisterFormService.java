@@ -5,15 +5,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.control.CommandProcess;
 
-public class BoardWriteFormService implements CommandProcess {
+public class BoardRegisterFormService implements CommandProcess {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-		request.setAttribute("display", "/board/boardWriteForm.jsp");
+		request.setAttribute("display", "/board/boardRegisterForm.jsp");
 		return "/index.jsp";
 	}
+
 }
-// 창을 띄워주는 역할일 뿐
-
-
-

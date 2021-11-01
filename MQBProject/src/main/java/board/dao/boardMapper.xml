@@ -39,4 +39,9 @@
 		(select * from board order by ref desc, step asc) tt 
 		)where rn >= #{startNum} and rn <= #{endNum} ]] -->
 	</select>
+	
+	<!-- 글보기 -->
+	<select id="getBoardView" parameterType="int" resultType="board">
+		select * from board where seq=#{seq}
+	</select>
 </mapper>

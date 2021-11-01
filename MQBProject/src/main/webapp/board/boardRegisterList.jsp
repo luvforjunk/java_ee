@@ -40,12 +40,13 @@ td {
 	color: green;
 	text-decoration: underline;
 }
+
 </style>
 
 <body>
 	<input type="hidden" id="pg" value="${requestScope.pg }">
-	<table id="boardListTable" border="1" cellspacing="0" cellpadding="5"
-		frame="hsides" rules="rows">
+	<table id="boardRegisterListTable" border="1" cellspacing="0"
+		cellpadding="5" frame="hsides" rules="rows">
 		<tr>
 			<th width="100">글번호</th>
 			<th width="300">제목</th>
@@ -57,18 +58,17 @@ td {
 	</table>
 	<div style="width: 750px; text-align: center;">
 		<c:forEach var="i" begin="1" end="${totalP }">
-			<c:if test="${i == pg }">
-			[<a id="currentPaging" href="/MQBProject/board/boardList.do?pg=${i }">${i }</a>]
+			 <c:if test="${i == pg }">
+			[<a id="currentPaging"
+					href="/MQBProject/board/boardRegisterList.do?pg=${i }">${i }</a>]
 		</c:if>
 			<c:if test="${i != pg }">
-			[<a id="paging" href="/MQBProject/board/boardList.do?pg=${i }">${i }</a>]
-		</c:if>
+			[<a id="paging"
+					href="/MQBProject/board/boardRegisterList.do?pg=${i }">${i }</a>]
+		</c:if> 
 		</c:forEach>
 	</div>
 
-
-	<script type="text/javascript"
-		src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script type="text/javascript" src="/MQBProject/js/boardList.js">
-		
-	</script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/MQBProject/js/register.js">
+</script>

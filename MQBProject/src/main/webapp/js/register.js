@@ -1,12 +1,10 @@
 $(function() {
 	$.ajax({
-		url: '/MQBProject/board/getBoardList.do',
+		url: '/MQBProject/board/getBoardRegisterList.do',
 		type: 'post',
 		data: 'pg=' + $('#pg').val(),
 		dataType: 'json',
 		success: function(data) {
-			//alert(JSON.stringify(data));
-
 			$.each(data.list, function(index, items) {
 				$('<tr>').append($('<td/>', {
 					align: 'center',
@@ -19,32 +17,27 @@ $(function() {
 					href: '#',
 					text: items.subject,
 					class: 'subjectA',
-					id: 'subject_'+items.seq
 
 				}))
 
 				).append($('<td/>', {
 					align: 'center',
+					text: items.email1
+					
+				})).append($('<td/>', {
+					align: 'center',
+					text: items.email2
+
+
+				})).append($('<td/>', {
+					align: 'center',
 					text: items.id
 
 				})).append($('<td/>', {
 					align: 'center',
-					text: items.hit
+					text: items.content
 
-				})).append($('<td/>', {
-					align: 'center',
-					text: items.logtime
-
-				})).appendTo($('#boardListTable'));
-
-				//로그인 여부
-				$('#subject_' + items.seq).click(function() { 
-					if(data.memId==null){
-					alert('먼저 로그인 하세요.');
-					}else{
-						location.href='/MQBProject/board/boardView.do?seq='+items.seq+'&pg='+$('#pg').val();
-					}
-				});
+				})).appendTo($('#boardRegisterListTable'));
 			}); //each
 		},
 		error: function(err) {
@@ -52,4 +45,3 @@ $(function() {
 		}
 	});
 });
-// 자바스크립트에서는 세션이 없다.

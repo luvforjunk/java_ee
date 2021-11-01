@@ -1,4 +1,4 @@
-package board.dao;
+package guestbook.dao;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -10,22 +10,23 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import board.bean.BoardDTO;
+import guestbook.bean.GuestbookDTO;
 
-public class BoardDAO {
-	private static BoardDAO instance;
+public class GuestbookDAO {
+	private static GuestbookDAO instance;
 	private SqlSessionFactory sqlSessionFactory;
 
-	public static BoardDAO getInstance() {
+	public static GuestbookDAO getInstance() {
 		if (instance == null) {
-			synchronized (BoardDAO.class) {
-				instance = new BoardDAO();
+			synchronized (GuestbookDAO.class) {
+				instance = new GuestbookDAO();
 			}
 		}
+
 		return instance;
 	}
 
-	public BoardDAO() {
+	public GuestbookDAO() {
 		try {
 			Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
 			sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
@@ -34,24 +35,18 @@ public class BoardDAO {
 		}
 	}
 
-	public void boardWrite(Map<String, String> map) {
+	public void boardRegister(Map<String, String> map) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		sqlSession.insert("boardSQL.boardWrite", map);
+		sqlSession.insert("registerSQL.boardRegister", map);
 		sqlSession.commit();
 		sqlSession.close();
 	}
 
-	public List<BoardDTO> getBoardList(Map<String, Integer> map) {
+	public List<GuestbookDTO> getBoardRegisterList(Map<String, Integer> map) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		List<BoardDTO> list = sqlSession.selectList("boardSQL.getBoardList", map);
+		List<GuestbookDTO> list = sqlSession.selectList("registerSQL.getBoardRegisterList", map);
 		sqlSession.close();
 		return list;
 	}
 
-	public BoardDTO getBoardView(int seq) {
-		SqlSession sqlSession = sqlSessionFactory.openSession();
-		BoardDTO boardDTO = sqlSession.selectOne("boardSQL.getBoardView", seq);
-		sqlSession.close();
-		return boardDTO;
-	}
 }

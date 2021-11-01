@@ -81,5 +81,8 @@ footer {
 	<footer>
 		<p>도롱뇽</p>
 	</footer>
+	
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/MQBProject/js/member.js"></script>	
 </body>
 </html>

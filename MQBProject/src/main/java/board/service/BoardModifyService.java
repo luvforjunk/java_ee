@@ -39,9 +39,7 @@ public class BoardModifyService implements CommandProcess {
 		map.put("seq", seq);
 		map.put("subject", subject);
 		map.put("content", content);
-		* */
-		
-		
+		* */	
 		
 		// DB
 		BoardDAO boardDAO = BoardDAO.getInstance();
@@ -50,5 +48,6 @@ public class BoardModifyService implements CommandProcess {
 		// 응답
 		return "/board/boardModify.jsp";
 	}
-
 }
+
+

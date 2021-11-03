@@ -7,14 +7,24 @@
 	<!-- post방식으로 넘겨주기 위해 -->
 	<input type="hidden" name="seq" id="seq" value="${requestScope.seq }">
 	<input type="hidden" name="pg" id="pg" value="${pg }">
+	<!-- hidden으로 seq와 pg값을 보내고 있다 -->
 
-	<table border="1" cellspacing="0" cellpadding="5" frame="hsides" rules="rows">
-		<tr>	
+	<table border="1" cellspacing="0" cellpadding="5" frame="hsides"
+		rules="rows">
+		<!-- <tr>
 			<td colspan="3">
-				<h3><span id="subjectSpan"></span></h3>
-			</td> 
-			<!-- 내가 잡은 글자만큼 크기를 잡아주려 <span>태그를 쓴다 -->
-		</tr>
+				<h3>
+					<span id="subjectSpan"></span>
+				</h3>
+			</td>
+			내가 잡은 글자만큼 크기를 잡아주려 <span>태그를 쓴다
+		</tr> -->
+		
+		<tr>
+      		<td style='width:450px; height:40px; word-wrap:break-word; word-break: break-all;' colspan="3">
+     			 <h3><span id="subjectSpan"></span></h3>
+     		</td>
+  		</tr>
 
 		<tr>
 			<td width="150">글번호 : <span id="seqSpan"></span></td>
@@ -24,8 +34,16 @@
 
 		<tr>
 			<td colspan="3" height="200" valign="top">
-			<pre><span id="contentSpan"></span></pre></td>
+				<pre style="white-space: pre-wrap; word_wrap: break-word; word-break: break-all;">
+         			<span id="contentSpan"></span>  
+        		</pre>
+			</td>
 		</tr>
+
+		<!-- <tr>
+			<td colspan="3" height="200" valign="top">
+			<pre><span id="contentSpan"></span></pre></td>
+		</tr> -->
 	</table>
 
 	<input type="button" id="boardListBtn" value="목록"
@@ -35,15 +53,19 @@
 		<input type="button" value="글수정" onclick="mode(1)"> <!--함수는 맘대로 설정해둬도 상관없다  -->
 		<input type="button" value="글삭제" onclick="mode(2)">
 	</span> 
-		<input type="button" value="답글">
+		<input type="button" value="답글" 
+		onclick="location.href='/MQBProject/board/boardReplyForm.do?seq=${seq}&pg=${pg }'">
 </form>
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function() {
 		$.ajax({
 			url : '/MQBProject/board/getBoardView.do',
 			type : 'post',
-			data : {'seq' : $('#seq').val()},
+			data : {
+				'seq' : $('#seq').val()
+			},
 			dataType : 'json',
 			success : function(data) {
 				console.log(JSON.stringify(data));

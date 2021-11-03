@@ -75,19 +75,15 @@ public class GetBoardListService implements CommandProcess {
 				temp.put("logtime", sdf.format(boardDTO.getLogtime()));
 
 				array.add(temp);
-
-			} // for
-			
+			} // for	
 			json.put("list", array);
-			
+		
 			// 세션 -> JSON 변환
-			json.put("memId", memId);
-			
+			json.put("memId", memId);		
 		} // if
 		
 		//BoardPaging -> JSON 변환
-		json.put("boardPaging", boardPaging.getPagingHTML().toString());
-		
+		json.put("boardPaging", boardPaging.getPagingHTML().toString());	
 		System.out.println(json);
 		//System.out.println(paging);
 

@@ -15,6 +15,8 @@
 }
 </style>
 
+<form id="imageboardDeleteForm" method="post" action="/MQBProject/imageboard/imageboardDelete.do">
+
 <input type="hidden" id="pg" value="${requestScope.pg }">
 
 <table id="imageboardListTable" border="1" cellspacing="0"
@@ -28,14 +30,14 @@
 		<th width="100">합계</th>
 	</tr>
 </table>
-<input type="button" id="choiceDeleteBtn" style="margin-top: 5px;"
-	value="선택삭제">
 
-<div id="imageboardPagingDiv"
-	style="display: inline-block; width: 540px; text-align: center; border: 1px;">aaa</div>
+<input type="button" id="choiceDeleteBtn" style="margin-top: 5px;" value="선택삭제">
 
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<div id="imageboardPagingDiv" style="display: inline-block; width: 540px; text-align: center; border: 1px;">aaa</div>
+
+
+</form>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 	$(function() {
 		$.ajax({
@@ -50,10 +52,18 @@
 
 					$('<tr/>').append($('<td/>', {
 						align : 'center',
-						text : items.seq,
-						id : 'imageSeq_' + items.seq
-					})).append($('<td/>', {
-						align : 'center',
+						text : items.seq
+						//id : 'imageSeq_' + items.seq
+						
+					}).prepend($('<input/>', {
+						type: 'checkBox',
+						class: 'check',
+						name: 'check',
+						value: items.seq
+					}))
+					
+					).append($('<td/>', {
+						align : 'center'
 
 					}).append($('<img/>', {
 						src : '/MQBProject/storage/' + items.image1,
@@ -66,7 +76,7 @@
 
 					})).append($('<td/>', {
 						align : 'center',
-						text : items.imagePrice
+						text : items.imagePrice.toLocaleString()
 
 					})).append($('<td/>', {
 						align : 'center',
@@ -75,16 +85,23 @@
 					})).append(
 							$('<td/>', {
 								align : 'center',
-								text : (items.imagePrice * items.imageQty)
-										.toLocaleString()
+								text : (items.imagePrice * items.imageQty).toLocaleString()
 
 							})).appendTo($('#imageboardListTable'));
 					
-					
-					$('#imageSeq_'+items.seq).prepend($('<input>', {
+					<%-- $('#imageSeq_'+items.seq).prepend($('<input>', {
 		                  type: 'checkbox',
 		                  class: 'check'
 		            }));
+					 $('#all').click(function(){
+				            if($(this).is(":checked")){
+				               $('input:checkbox').prop('checked', true);
+				            }
+				            else{
+				               $('input:checkbox').prop('checked', false);
+				            }
+				         });--%>
+					
 				}); //each
 
 				//페이징처리
@@ -96,8 +113,31 @@
 		});
 	});
 </script>
+
 <script>
-	function imageboardPaging(param_pg) {
-		location.href = '/MQBProject/imageboard/imageboardList.do?pg='+ param_pg;
+function imageboardPaging(param_pg) {
+	location.href='/MQBProject/imageboard/imageboardList.do?pg='+param_pg;
+}
+
+// 전체 선택 / 전체 해제
+$('#all').click(function(){
+	if($('#all').prop("checked")){
+        $('.check').prop('checked', true);
+     }else{
+        $('.check').prop('checked', false);
+     }
+});
+
+// 선택 삭제
+$('#choiceDeleteBtn').click(function(){
+	var count = $('.check:checked').length;
+	alert(count);
+	
+	if(count == 0)
+		alert('삭제 할 항목을 선택하세요');
+	else {
+		if(confirm('정말로 삭제하시겠습니까?'))
+			$('#imageboardDeleteForm').submit();
 	}
+});
 </script>

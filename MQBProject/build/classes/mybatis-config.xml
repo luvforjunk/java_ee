@@ -11,6 +11,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="board.bean.BoardDTO" alias="board"/>
 		<typeAlias type="guestbook.bean.GuestbookDTO" alias="register"/>
 		<typeAlias type="imageboard.bean.ImageboardDTO" alias="imageboard"/>
+		<typeAlias type="product.bean.ProductDTO" alias="product"/>
 	</typeAliases>
 
 	<environments default="development">
@@ -30,6 +31,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="board/dao/boardMapper.xml" />
 		<mapper resource="guestbook/dao/registerMapper.xml" />
 		<mapper resource="imageboard/dao/imageboardMapper.xml" />
+		<mapper resource="product/dao/productMapper.xml" />
 	</mappers>
 </configuration>
 

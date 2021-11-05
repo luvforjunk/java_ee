@@ -2,6 +2,7 @@ package imageboard.dao;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,7 +11,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import board.bean.BoardDTO;
 import imageboard.bean.ImageboardDTO;
 
 public class ImageboardDAO {
@@ -51,5 +51,23 @@ public class ImageboardDAO {
 		int totalA = sqlSession.selectOne("imageboardSQL.getImageboardTotalA");
 		sqlSession.close();
 		return totalA;
+	}
+	public void imageboardDelete(String[] check) {
+		Map<String, String[]> map = new HashMap<String, String[]>();
+		map.put("check", check);
+		
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		sqlSession.delete("imageboardSQL.imageboardDelete", map);
+		sqlSession.commit();
+		sqlSession.close();
+		
+		/*  데이터를 넘기는 양이 많지 않을 때 써도 괜찮다
+		 * SqlSession sqlSession = sqlSessionFactory.openSession();
+		 * for(int i=0; i<check.length; i++) {
+		 * sqlSession.delete("", check[i]);
+		 * } 
+		 * sqlSession.commit();
+		 * sqlSession.close();
+		*/	
 	}
 }

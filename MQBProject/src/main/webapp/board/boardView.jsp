@@ -10,7 +10,7 @@
 	<!-- hidden으로 seq와 pg값을 보내고 있다 -->
 
 	<table border="1" cellspacing="0" cellpadding="5" frame="hsides"
-		rules="rows">
+		rules="rows" width="450">
 		<!-- <tr>
 			<td colspan="3">
 				<h3>
@@ -22,7 +22,7 @@
 		
 		<tr>
       		<td style='width:450px; height:40px; word-wrap:break-word; word-break: break-all;' colspan="3">
-     			 <h3><span id="subjectSpan"></span></h3>
+      			<h3><span id="subjectSpan"></span></h3>
      		</td>
   		</tr>
 
@@ -34,9 +34,7 @@
 
 		<tr>
 			<td colspan="3" height="200" valign="top">
-				<pre style="white-space: pre-wrap; word_wrap: break-word; word-break: break-all;">
-         			<span id="contentSpan"></span>  
-        		</pre>
+				<pre style="white-space:pre-line; word-break:break-all;"><span id="contentSpan"></span></pre>
 			</td>
 		</tr>
 
@@ -97,7 +95,9 @@
 			document.getElementById("boardViewForm").submit();
 			// submit으로 넘어갈 수 있는 건 아이디 속성이 아닌 name속성이다.
 		} else if (num == 2) {
-
+			document.getElementById("boardViewForm").method = 'post';
+			document.getElementById("boardViewForm").action = '/MQBProject/board/boardDelete.do';
+			document.getElementById("boardViewForm").submit();
 		}
 	}
 </script>

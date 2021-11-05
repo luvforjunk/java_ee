@@ -73,30 +73,38 @@ public class BoardDAO {
 	}
 
 	public void boardReply(Map<String, String> map) {
-		// 원글 
+		// 원글
 		// 위에서 getBoardView는 seq만 준다면 그 사람에 대한 모든 것을 꺼내온다
-		// 원글 번호는 map이 쥐고 있다. map.put("pseq", pseq+""); 
+		// 원글 번호는 map이 쥐고 있다. map.put("pseq", pseq+"");
 		BoardDTO pDTO = getBoardView(Integer.parseInt(map.get("pseq")));
-	    
-	    SqlSession sqlSession = sqlSessionFactory.openSession();
-	    
-	    //step(글순서) update
-	    // update board set step=step+1 where ref=#{원글ref} and step > #{원글step}
-	    sqlSession.update("boardSQL.boardReply1", pDTO);
-	    
-	    //insert
+
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+
+		// step(글순서) update
+		// update board set step=step+1 where ref=#{원글ref} and step > #{원글step}
+		sqlSession.update("boardSQL.boardReply1", pDTO);
+
+		// insert
 		map.put("ref", pDTO.getRef() + ""); // 답글ref = 원글ref
-		map.put("lev", pDTO.getLev()+ 1 + ""); //답글lev = 원글lev+1
-	    map.put("step", pDTO.getStep()+ 1 + ""); //답글step = 원글step+1
-	    
+		map.put("lev", pDTO.getLev() + 1 + ""); // 답글lev = 원글lev+1
+		map.put("step", pDTO.getStep() + 1 + ""); // 답글step = 원글step+1
+
 		sqlSession.insert("boardSQL.boardReply2", map);
-	    
-	    //reply(답글수) update
-	    //update board set reply=reply+1 where seq=#{pseq}
-	    sqlSession.update("boardSQL.boardReply3", Integer.parseInt(map.get("pseq")));
-	    
-	    sqlSession.commit();
-	    sqlSession.close();
-	    
+
+		// reply(답글수) update
+		// update board set reply=reply+1 where seq=#{pseq}
+		sqlSession.update("boardSQL.boardReply3", Integer.parseInt(map.get("pseq")));
+
+		sqlSession.commit();
+		sqlSession.close();
+
+	}
+
+	public void boardDelete(int seq) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		sqlSession.delete("boardSQL.boardDelete", seq);
+		sqlSession.commit();
+		sqlSession.close();
+
 	}
 }

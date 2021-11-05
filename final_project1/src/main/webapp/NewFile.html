@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.scale {
+	transform: scale(1); /*  default */
+	-webkit-transform: scale(1);  /*  크롬 */
+	-moz-transform: scale(1); /* FireFox */
+	-ms-transform: scale(1);
+	-o-transform: scale(1); /* Opera */
+	transition: all 0.3s ease-in-out; /* 부드러운 모션을 위해 추가*/
+}
+
+.scale:hover {
+	transform: scale(1.2);
+	-webkit-transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+	-o-transform: scale(1.2);
+}
+
+.img {
+	width: 325px;
+	height: 280px;
+	overflow: hidden
+}
+</style>
+</head>
+
+<div class="img">
+	<div class="scale">
+		<img src="img/10041f000001gp7axEDFB_C_400_280.jpg">
+	</div>
+</div>
+
+</body>
+</html>
